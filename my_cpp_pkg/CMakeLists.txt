@@ -19,6 +19,7 @@ ament_target_dependencies(number_publisher rclcpp example_interfaces)
 
 add_executable(number_counter src/number_counter.cpp)
 ament_target_dependencies(number_counter rclcpp example_interfaces)
+ament_target_dependencies(number_counter rclcpp my_robot_interfaces)
 
 add_executable(my_robot_publisher src/my_robot_publisher.cpp)
 ament_target_dependencies(my_robot_publisher rclcpp my_robot_interfaces)
@@ -26,12 +27,17 @@ ament_target_dependencies(my_robot_publisher rclcpp my_robot_interfaces)
 add_executable(my_robot_subscriber src/my_robot_subscriber.cpp)
 ament_target_dependencies(my_robot_subscriber rclcpp my_robot_interfaces)
 
+add_executable(reset_counter_client src/reset_counter_client.cpp)
+ament_target_dependencies(reset_counter_client rclcpp my_robot_interfaces)
+
+
 install(TARGETS
  test_node
  number_publisher
  number_counter
  my_robot_publisher
  my_robot_subscriber
+ reset_counter_client
  DESTINATION lib/${PROJECT_NAME}/
 )
 
