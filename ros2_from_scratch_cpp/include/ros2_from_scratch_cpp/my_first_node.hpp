@@ -19,7 +19,12 @@ private:
 class MyCustomNode : public rclcpp::Node
 {
 public:
-    explicit MyCustomNode(const std::string &node_name, std::chrono::milliseconds delay, const std::string &msg_);
+    // Delegating constructors
+    explicit MyCustomNode();
+    explicit MyCustomNode(const std::string &node_name);
+    explicit MyCustomNode(const std::string &node_name, const std::string &msg);
+    explicit MyCustomNode(const std::string &node_name, std::chrono::milliseconds delay, const std::string &msg);
+
     void print_msg();
 
 private:
