@@ -2,6 +2,8 @@
 #define MY_FIRST_NODE_HPP
 
 #include "rclcpp/rclcpp.hpp"
+#include <chrono>
+#include <string>
 
 /*
 class MyCustomNode : public rclcpp::Node
@@ -19,11 +21,16 @@ private:
 class MyCustomNode : public rclcpp::Node
 {
 public:
+    /*
     // Delegating constructors
     explicit MyCustomNode();
     explicit MyCustomNode(const std::string &node_name);
     explicit MyCustomNode(const std::string &node_name, const std::string &msg);
-    explicit MyCustomNode(const std::string &node_name, std::chrono::milliseconds delay, const std::string &msg);
+    */
+
+    explicit MyCustomNode(const std::string &node_name = "Default_node", 
+                                std::chrono::milliseconds delay = std::chrono::milliseconds(1000), 
+                                const std::string &msg = "Hello from Default Node");
 
     void print_msg();
 

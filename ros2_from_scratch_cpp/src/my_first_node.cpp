@@ -14,6 +14,20 @@ void MyCustomNode::print_msg()
 }
 */
 
+/*
+// Default constructor (delegates to primary constructor)
+MyCustomNode::MyCustomNode()
+    : MyCustomNode("default_node", std::chrono::milliseconds(1000), "Hello from Default Node") {}
+
+// Constructor with only node_name (delegates to primary constructor)
+MyCustomNode::MyCustomNode(const std::string &node_name)
+    : MyCustomNode(node_name, std::chrono::milliseconds(1000), "Hello from " + node_name) {}
+
+// Constructor with node_name and msg (delegates to primary constructor)
+MyCustomNode::MyCustomNode(const std::string &node_name, const std::string &msg)
+    : MyCustomNode(node_name, std::chrono::milliseconds(1000), msg) {}
+*/
+
 // Primary constructor (delegating target)
 MyCustomNode::MyCustomNode(const std::string &node_name, 
                            std::chrono::milliseconds delay, 
@@ -26,17 +40,6 @@ MyCustomNode::MyCustomNode(const std::string &node_name,
     );
 }
 
-// Default constructor (delegates to primary constructor)
-MyCustomNode::MyCustomNode()
-    : MyCustomNode("default_node", std::chrono::milliseconds(1000), "Hello from Default Node") {}
-
-// Constructor with only node_name (delegates to primary constructor)
-MyCustomNode::MyCustomNode(const std::string &node_name)
-    : MyCustomNode(node_name, std::chrono::milliseconds(1000), "Hello from " + node_name) {}
-
-// Constructor with node_name and msg (delegates to primary constructor)
-MyCustomNode::MyCustomNode(const std::string &node_name, const std::string &msg)
-    : MyCustomNode(node_name, std::chrono::milliseconds(1000), msg) {}
 
 // Function to print messages
 void MyCustomNode::print_msg()

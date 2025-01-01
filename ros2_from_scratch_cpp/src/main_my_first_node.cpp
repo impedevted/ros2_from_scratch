@@ -29,7 +29,7 @@ int main(int argc, char **argv)
     // Create three nodes with different configurations
     auto node1 = std::make_shared<MyCustomNode>(); // Default constructor
     auto node2 = std::make_shared<MyCustomNode>("node2"); // Constructor with node_name
-    auto node3 = std::make_shared<MyCustomNode>("node3", "Hello from Node 3"); // Constructor with node_name and msg
+    auto node3 = std::make_shared<MyCustomNode>("node3", std::chrono::milliseconds(500), "Hello from Node 3"); // Constructor with node_name and msg
 
     // Create an executor to run the nodes
     rclcpp::executors::StaticSingleThreadedExecutor executor;
