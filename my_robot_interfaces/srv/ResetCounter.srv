@@ -1,4 +1,0 @@
-int64 reset_value
----
-bool success
-string message
