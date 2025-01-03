@@ -8,21 +8,27 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(example_interfaces REQUIRED)
 
 # Include directories
 include_directories(include)
 
-# Define sources
-set(SOURCES
+# Executables #1
+set(SOURCES_1ST_NODE
   src/my_first_node.cpp
   src/main_my_first_node.cpp
 )
-
-# Create executable
-add_executable(first_node ${SOURCES})
-
-# Link dependencies
+add_executable(first_node ${SOURCES_1ST_NODE})
 ament_target_dependencies(first_node rclcpp)
+
+# Executables #2
+add_executable(number_publisher src/number_publisher.cpp)
+ament_target_dependencies(number_publisher rclcpp example_interfaces)
+
+# Executables #3
+add_executable(number_counter src/number_counter.cpp)
+ament_target_dependencies(number_counter rclcpp example_interfaces)
+
 
 # Installation instructions
 install(TARGETS 
